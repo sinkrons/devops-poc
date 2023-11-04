@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-poc-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-poc
+  template:
+    metadata:
+      labels:
+        app: devops-poc
+    spec:
+      containers:
+        - name: devops-poc
+          image: sinkrons/devops-poc:latest
+          ports:
+            - containerPort: 8080
